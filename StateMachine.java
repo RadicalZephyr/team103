@@ -1,26 +1,26 @@
 package team103;
 
 public class StateMachine {
-    MethodActor Owner;
+    Actor Owner;
  
     State CurrentState;
     State PreviousState;
     State GlobalState; 
 
-    StateMachine(MethodActor owner) {
+    StateMachine(Actor owner) {
         Owner = owner;
     }
    
     // Init. methods
-    void SetCurrentState(State state) {
+    void setCurrentState(State state) {
         CurrentState = state;
     }
 
-    void SetGlobalState(State state) {
+    void setGlobalState(State state) {
         GlobalState = state;
     }
 
-    void SetPreviousState(State state) {
+    void setPreviousState(State state) {
         PreviousState = state;
     }
 
@@ -34,7 +34,7 @@ public class StateMachine {
         }
     }
 
-    void ChangeState(State state) {
+    void changeState(State state) {
 
         assert (state != null): "StateMachine tried to enter a null state.";
 
@@ -45,8 +45,8 @@ public class StateMachine {
         CurrentState.Enter(Owner);
     }
     
-    void RevertToPreviousState() {
-        ChangeState(PreviousState);
+    void revertToPreviousState() {
+        changeState(PreviousState);
     }
 
     boolean isInState(State state) {

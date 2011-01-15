@@ -3,9 +3,9 @@ package team103;
 import battlecode.common.*;
 import static battlecode.common.GameConstants.*;
 
-public class Mover extends Actor {
+class Building extends Actor {
 
-    public Mover(RobotController rc) {
+    public Building(RobotController rc) {
         super(rc);
     }
 
@@ -13,4 +13,5 @@ public class Mover extends Actor {
         System.out.println("Checking in front of robot.");
         return true;
     }
+
 }

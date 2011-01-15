@@ -6,16 +6,17 @@ import static battlecode.common.GameConstants.*;
 public class RobotPlayer implements Runnable {
 
     private final RobotController myRC;
-    private final StateMachine mySM;
-    private final MethodActor mover;
+    private StateMachine mySM;
 
     public RobotPlayer(RobotController rc) {
         myRC = rc;
-        mover = new Mover();
-        mySM = new StateMachine(mover);
+        mySM = new StateMachine(new Mover(rc));
     }
 
     public void run() {
+        if (myRC.getChassis() == Chassis.BUILDING)
+            mySM = new StateMachine(new Building(myRC));
+            
         ComponentController[] components = myRC.newComponents();
         System.out.println(java.util.Arrays.toString(components));
         System.out.flush();
@@ -23,6 +24,7 @@ public class RobotPlayer implements Runnable {
 
         while (true) {
             // Last catch loop
+            mySM.Update();
             myRC.yield();
         }
     }
