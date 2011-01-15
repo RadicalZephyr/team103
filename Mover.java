@@ -15,9 +15,4 @@ public class Mover extends Actor {
     public Mover(RobotController rc) {
         super(rc);
     }
-
-    boolean isClearInFront() {
-        System.out.println("Checking in front of robot.");
-        return true;
-    }
 }

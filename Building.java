@@ -13,9 +13,4 @@ class Building extends Actor {
         
     }
 
-    boolean isClearInFront() {
-        System.out.println("Checking in front of robot.");
-        return motor.canMove(curDir);
-    }
-
 }

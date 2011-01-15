@@ -10,7 +10,7 @@ public class RobotPlayer implements Runnable {
 
     public RobotPlayer(RobotController rc) {
         myRC = rc;
-        mySM = new StateMachine(new Mover(rc));
+        mySM = new StateMachine(new Actor(rc));
     }
 
     public void run() {

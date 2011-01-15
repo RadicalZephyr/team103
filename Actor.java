@@ -29,6 +29,9 @@ public abstract class Actor {
 
     }
 
-    abstract boolean isClearInFront();
+    boolean isClearInFront() {
+        System.out.println("Checking in front of robot.");
+        return motor.canMove(curDir);
+    }
     
 }
