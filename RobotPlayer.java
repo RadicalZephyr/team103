@@ -17,11 +17,6 @@ public class RobotPlayer implements Runnable {
         if (myRC.getChassis() == Chassis.BUILDING)
             mySM = new StateMachine(new Building(myRC));
             
-        ComponentController[] components = myRC.newComponents();
-        System.out.println(java.util.Arrays.toString(components));
-        System.out.flush();
-
-
         while (true) {
             // Last catch loop
             mySM.Update();
