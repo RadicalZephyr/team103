@@ -14,9 +14,9 @@ public class RobotPlayer implements Runnable {
     }
 
     public void run() {
-        if (myRC.getChassis() == Chassis.BUILDING)
+        if (myRC.getChassis() == Chassis.BUILDING) {
             mySM.changeActor(new Building(myRC));
-            
+        }
         while (true) {
             // Last catch loop
             mySM.Update();
@@ -25,4 +25,3 @@ public class RobotPlayer implements Runnable {
     }
 
 }
-
