@@ -35,8 +35,8 @@ public class StateMachine {
     }
 
     void changeState(State state) {
-
-        assert (state != null): "StateMachine tried to enter a null state.";
+        if (state == null)
+            return;
 
         PreviousState = CurrentState;
 
@@ -44,7 +44,14 @@ public class StateMachine {
         CurrentState = state;
         CurrentState.Enter(Owner);
     }
-    
+ 
+    void changeActor(Actor actor) {
+        if (actor == null)
+            return;
+        
+        Owner = actor;
+    }
+   
     void revertToPreviousState() {
         changeState(PreviousState);
     }

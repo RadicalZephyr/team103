@@ -15,7 +15,7 @@ public class RobotPlayer implements Runnable {
 
     public void run() {
         if (myRC.getChassis() == Chassis.BUILDING)
-            mySM = new StateMachine(new Building(myRC));
+            mySM.changeActor(new Building(myRC));
             
         while (true) {
             // Last catch loop
