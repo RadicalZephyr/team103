@@ -6,7 +6,8 @@ import static battlecode.common.GameConstants.*;
 public abstract class Actor {
     final RobotController myRC;
     final MovementController motor;
-    
+
+    ComponentController[] components;    
     Direction curDir;
     
     double curHP, maxHP;
@@ -15,11 +16,15 @@ public abstract class Actor {
 
     public Actor(RobotController rc) {
         myRC = rc;
-        motor = (MovementController) myRC.components()[0];
+        components = myRC.components();
+        System.out.println(java.util.Arrays.toString(components));
+        System.out.flush();
+
+        motor = (MovementController) components[0];
 
         curDir = myRC.getDirection();
 
-        curHP = myRC.getHitPoints();
+        curHP = myRC.getHitpoints();
         maxHP = curHP;
 
     }
