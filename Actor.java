@@ -3,7 +3,7 @@ package team103;
 import battlecode.common.*;
 import static battlecode.common.GameConstants.*;
 
-public abstract class Actor {
+public class Actor {
     final RobotController myRC;
     final MovementController motor;
 
