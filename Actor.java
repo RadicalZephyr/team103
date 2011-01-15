@@ -3,7 +3,7 @@ package team103;
 import battlecode.common.*;
 import static battlecode.common.GameConstants.*;
 
-public class Actor {
+class Actor {
     final RobotController myRC;
     final MovementController motor;
 
@@ -34,4 +34,30 @@ public class Actor {
         return motor.canMove(curDir);
     }
     
+}
+
+class Mover extends Actor {
+
+    WeaponController mainwep;
+    WeaponController subwep;
+    
+    SensorController sensor;
+
+    BroadcastController broadcast;
+
+    public Mover(RobotController rc) {
+        super(rc);
+    }
+}
+
+class Building extends Actor {
+    
+    BuilderController builder;
+    SensorController sensor;
+    
+    public Building(RobotController rc) {
+        super(rc);
+        
+    }
+
 }

@@ -11,7 +11,7 @@ abstract class State {
 class RecyclerGlobal extends State {
 
     void Enter(Actor owner) {
-        // Do checks for calls that are made.
+        // Check capabilities
     }
 
     void Execute(Actor owner) {
