@@ -1,5 +1,8 @@
 package team103;
 
+import battlecode.common.*;
+import static battlecode.common.GameConstants.*;
+
 class InConstruction extends State {
     InConstruction(Actor owner, StateMachine fsm) {
         super(owner, fsm);
@@ -20,12 +23,16 @@ class InConstruction extends State {
         //System.out.println("Executing InConstruction: identifying components.");
         switch (owner.myRC.getChassis()) {
         case BUILDING:
-            if (isRecycler())
+            if (isRecycler()) {
                 System.out.println("Identified Recycler.");
+                fsm.setGlobalState(new RecyclerGlobal(owner, fsm));
+            }
             break;
         case LIGHT:
-            if (isConstructor())
+            if (isConstructor()) {
                 System.out.println("Identified Constructor.");
+                fsm.setGlobalState(new ConstructorGlobal(owner,fsm));
+            }
             break;
         case MEDIUM:
 
@@ -47,12 +54,12 @@ class InConstruction extends State {
     }
 
     boolean isConstructor() {
-        return (owner.components[1] == ComponentType.CONSTRUCTOR &&
-                owner.components[2] == ComponentType.SIGHT);
+        return (owner.components[1].type() == ComponentType.CONSTRUCTOR &&
+                owner.components[2].type() == ComponentType.SIGHT);
     }
 
     boolean isRecycler() {
-        return (owner.components[1] == ComponentType.BUILDING_SENSOR &&
-                owner.components[2] == ComponentType.RECYCLER);
+        return (owner.components[1].type() == ComponentType.BUILDING_SENSOR &&
+                owner.components[2].type() == ComponentType.RECYCLER);
     }
 }
