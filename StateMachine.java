@@ -30,7 +30,7 @@ public class StateMachine {
 
     // Usage methods
     void Update() {
-        System.out.println("Entered update.");
+        //System.out.println("Entered update.");
         if (GlobalState != null) {
             GlobalState.Execute();
         }
