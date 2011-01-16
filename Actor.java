@@ -38,8 +38,7 @@ class Actor {
 
 class Mover extends Actor {
 
-    WeaponController mainwep;
-    WeaponController subwep;
+    WeaponController[] weapons;
     
     SensorController sensor;
 

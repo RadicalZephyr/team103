@@ -1,24 +1,75 @@
 package team103;
 
 abstract class State {
-    abstract void Execute(Actor owner);
+    Actor owner;
+    StateMachine fsm;
 
-    abstract void Enter(Actor owner);
+    public State(Actor owner, StateMachine fsm) {
+        this.owner = owner;
+        this.fsm = fsm;
+    }
 
-    abstract void Exit(Actor owner);
+    abstract void Execute();
+
+    abstract void Enter();
+
+    abstract void Exit();
+}
+
+class InConstruction extends State {
+    InConstruction(Actor owner, StateMachine fsm) {
+        super(owner, fsm);
+    }
+
+    void Enter() {
+        // Check capabilities
+        if (owner.components.length == 1)
+            owner.myRC.turnOff();
+
+        owner.components = owner.myRC.components();
+    }
+
+    void Execute() {
+        
+    }
+
+    void Exit() {
+
+    }
 }
 
 class RecyclerGlobal extends State {
+    public RecyclerGlobal(Actor owner, StateMachine fsm) {
+        super(owner, fsm);
+    }
 
-    void Enter(Actor owner) {
+    void Enter() {
         // Check capabilities
     }
 
-    void Execute(Actor owner) {
+    void Execute() {
 
     }
 
-    void Exit(Actor owner) {
+    void Exit() {
+
+    }
+}
+
+class ConstructorGlobal extends State {
+    public ConstructorGlobal(Actor owner, StateMachine fsm) {
+        super(owner, fsm);
+    }
+
+    void Enter() {
+        // Check capabilities
+    }
+
+    void Execute() {
+
+    }
+
+    void Exit() {
 
     }
 }
