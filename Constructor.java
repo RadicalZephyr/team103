@@ -17,3 +17,22 @@ class ConstructorGlobal extends State {
 
     }
 }
+
+class findFlux extends State {
+
+    public findFlux(Actor owner, StateMachine fsm) {
+        super(owner, fsm);
+    }
+                   
+    void Enter() {
+
+    }
+
+    void Execute() {
+        System.out.println("Looking for flux.");
+    }
+                  
+    void Exit() {
+
+    }
+}

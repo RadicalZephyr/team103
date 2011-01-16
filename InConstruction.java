@@ -26,12 +26,14 @@ class InConstruction extends State {
             if (isRecycler()) {
                 System.out.println("Identified Recycler.");
                 fsm.setGlobalState(new RecyclerGlobal(owner, fsm));
+                fsm.changeState(new makeConstructors(owner, fsm));
             }
             break;
         case LIGHT:
             if (isConstructor()) {
                 System.out.println("Identified Constructor.");
                 fsm.setGlobalState(new ConstructorGlobal(owner,fsm));
+                fsm.changeState(new findFlux(owner, fsm));
             }
             break;
         case MEDIUM:

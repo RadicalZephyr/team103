@@ -18,3 +18,21 @@ class RecyclerGlobal extends State {
     }
 }
 
+class makeConstructors extends State {
+
+    public makeConstructors(Actor owner, StateMachine fsm) {
+        super(owner, fsm);
+    }
+                   
+    void Enter() {
+
+    }
+
+    void Execute() {
+        System.out.println("Making constructors.");
+    }
+                  
+    void Exit() {
+
+    }
+}
