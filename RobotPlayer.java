@@ -17,6 +17,9 @@ public class RobotPlayer implements Runnable {
         if (myRC.getChassis() == Chassis.BUILDING) {
             mySM.changeActor(new Building(myRC));
         }
+
+        mySM.changeState(new InConstruction(mySM.Owner, mySM));
+        
         while (true) {
             // Last catch loop
             mySM.Update();
