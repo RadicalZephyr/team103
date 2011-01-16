@@ -14,10 +14,14 @@ public class StateMachine {
     // Init. methods
     void setCurrentState(State state) {
         CurrentState = state;
+        if (state != null) 
+            CurrentState.Enter();
     }
 
     void setGlobalState(State state) {
         GlobalState = state;
+        if (state != null) 
+            GlobalState.Enter();
     }
 
     void setPreviousState(State state) {
@@ -41,7 +45,9 @@ public class StateMachine {
 
         PreviousState = CurrentState;
 
-        CurrentState.Exit();
+        if (CurrentState != null)
+            CurrentState.Exit();
+
         CurrentState = state;
         CurrentState.Enter();
     }

@@ -22,23 +22,22 @@ class InConstruction extends State {
     }
 
     void Enter() {
-    }
-
-    void Execute() {
         System.out.println("Entering InConstruction state");
         if (owner.components.length == 1 || 
             owner.myRC.wasTurnedOff() == true) {
             System.out.println("Shutting down for component adding.");
             owner.myRC.turnOff();
         }
+    }
 
+    void Execute() {
         owner.components = owner.myRC.components();
         // Check capabilities        
         System.out.println("Executing InConstruction: identifying components.");
     }
 
     void Exit() {
-
+        System.out.println("Done building.  Changing to a do-stuff state.");
     }
 }
 
