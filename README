@@ -1,0 +1,35 @@
+Written by Geoff Shannon in January 2011.
+
+Basic Class structure:
+
+RobotPlayer is the interface that the battlecode framework uses.
+Every time a new robot is created, it gets its own instance of
+RobotPlayer, the constructor is called, and then the run method is
+called.
+
+If control ever reaches the end of the run method that robot is
+destroyed.  This is why we have a while (true) loop at the end of the
+run method as a catch all.
+
+All actual functionality of the robot is contained in the
+RobotController class that is passed to the RobotPlayer's constructor,
+thus the RC is what actually needs to be passed around.
+
+The basic control structure is that the RobotPlayer acts like a
+dispatcher.  It owns an instance of the StateMachine class, which is
+the dispatcher for handling the grunt work of swapping to different
+states.
+
+The StateMachine in turn has a pointer to an instance of an Actor
+class, or one of its descendants.  The purpose of the actor class is
+to provide a higher level view of the functionality prevented in the
+RobotController class.  One of the reasons for this is to tailor the
+high-level abilities provided to the actual hardware that is present
+in the robots.
+
+
+There's one major SNAFU right now in the design: having the
+StateMachine own the Actor class doesn't make sense in a certain way,
+because the actor then can't dictate what states are available.
+Either this functionality shouldn't be provided by the Actor (a
+definite possibility) or the order of ownership should be reversed.
