@@ -9,9 +9,9 @@ abstract class State {
         this.fsm = fsm;
     }
 
-    abstract void Execute();
-
     abstract void Enter();
+
+    abstract void Execute();
 
     abstract void Exit();
 }
@@ -34,6 +34,26 @@ class InConstruction extends State {
         owner.components = owner.myRC.components();
         // Check capabilities        
         System.out.println("Executing InConstruction: identifying components.");
+        switch (owner.myRC.getChassis()) {
+        case BUILDING:
+
+            break;
+        case LIGHT:
+
+            break;
+        case MEDIUM:
+
+            break;
+        case HEAVY:
+
+            break;
+        case FLYING:
+
+            break;
+        default:
+            System.out.println("Unknown chassis type.");
+            break;
+        }
     }
 
     void Exit() {
