@@ -26,11 +26,12 @@ public class StateMachine {
 
     // Usage methods
     void Update() {
+        System.out.println("Entered update.");
         if (GlobalState != null) {
-            GlobalState.Execute(Owner);
+            GlobalState.Execute();
         }
         if (CurrentState != null) {
-            CurrentState.Execute(Owner);
+            CurrentState.Execute();
         }
     }
 
@@ -40,9 +41,9 @@ public class StateMachine {
 
         PreviousState = CurrentState;
 
-        CurrentState.Exit(Owner);
+        CurrentState.Exit();
         CurrentState = state;
-        CurrentState.Enter(Owner);
+        CurrentState.Enter();
     }
  
     void changeActor(Actor actor) {

@@ -11,6 +11,10 @@ public class RobotPlayer implements Runnable {
     public RobotPlayer(RobotController rc) {
         myRC = rc;
         mySM = new StateMachine(new Actor(rc));
+
+        mySM.setCurrentState(new InConstruction(mySM.Owner, mySM));
+        mySM.setGlobalState(null);
+        mySM.setPreviousState(null);
     }
 
     public void run() {
@@ -18,8 +22,6 @@ public class RobotPlayer implements Runnable {
             mySM.changeActor(new Building(myRC));
         }
 
-        mySM.changeState(new InConstruction(mySM.Owner, mySM));
-        
         while (true) {
             // Last catch loop
             mySM.Update();
