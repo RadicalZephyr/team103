@@ -1,5 +1,8 @@
 package team103;
 
+import battlecode.common.*;
+import static battlecode.common.GameConstants.*;
+
 class ConstructorGlobal extends State {
     public ConstructorGlobal(Actor owner, StateMachine fsm) {
         super(owner, fsm);
