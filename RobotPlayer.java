@@ -10,7 +10,12 @@ public class RobotPlayer implements Runnable {
 
     public RobotPlayer(RobotController rc) {
         myRC = rc;
-        mySM = new StateMachine(new Actor(rc));
+
+        if (myRC.getChassis() == Chassis.BUILDING) {
+            mySM = new StateMachine(new Building(rc));
+        } else {
+            mySM = new StateMachine(new Actor(rc));
+        }
 
         mySM.setCurrentState(new InConstruction(mySM.Owner, mySM));
         mySM.setGlobalState(null);
@@ -18,9 +23,6 @@ public class RobotPlayer implements Runnable {
     }
 
     public void run() {
-        if (myRC.getChassis() == Chassis.BUILDING) {
-            mySM.changeActor(new Building(myRC));
-        }
 
         while (true) {
             // Last catch loop
