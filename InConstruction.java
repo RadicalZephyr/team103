@@ -1,7 +1,7 @@
 package team103;
 
 import battlecode.common.*;
-import static battlecode.common.GameConstants.*;
+//import static battlecode.common.GameConstants.*;
 
 class InConstruction extends State {
     InConstruction(Actor owner, StateMachine fsm) {
@@ -36,6 +36,7 @@ class InConstruction extends State {
         case LIGHT:
             if (isConstructor()) {
                 System.out.println("Identified Constructor.");
+                fsm.changeActor(new Constructor(owner.myRC));
                 fsm.setGlobalState(new ConstructorGlobal(owner,fsm));
                 fsm.changeState(new findFlux(owner, fsm));
             }

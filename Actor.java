@@ -1,6 +1,7 @@
 package team103;
 
 import battlecode.common.*;
+import battlecode.common.Mine;
 //import static battlecode.common.GameConstants.*;
 
 class Actor {
@@ -39,6 +40,7 @@ class Actor {
 class SensorActor extends Actor {
 
     SensorController sensor;
+    Mine mine; // This will never do anything, and probably won't run
 
      public SensorActor(RobotController rc) {
         super(rc);
@@ -49,7 +51,7 @@ class SensorActor extends Actor {
     }
 
     boolean canSeeMine() {
-        return sensor.canSenseObject(Mine);
+        return sensor.canSenseObject(mine);
     }
 
 }
