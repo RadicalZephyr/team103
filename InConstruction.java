@@ -10,8 +10,12 @@ class InConstruction extends State {
 
     void Enter() {
         //System.out.println("Entering InConstruction state");
-        if (owner.components.length == 1 || 
-            owner.myRC.wasTurnedOff() == true) {
+        // if there's only one component (the motor)
+        // and the robot has NOT been turned off before
+        // assume that we need to hang out while we get built the rest
+        // of the way
+        if (owner.components.length == 1 ||
+            owner.myRC.wasTurnedOff() == false) {
             System.out.println("Shutting down for component adding.");
             owner.myRC.turnOff();
         }

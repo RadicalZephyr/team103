@@ -11,7 +11,9 @@ public class StateMachine {
         Owner = owner;
     }
    
-    // Init. methods
+    // Init. methods For both setCurrent and setGlobal, not only do we
+    // set the state, we call the enter method
+
     void setCurrentState(State state) {
         CurrentState = state;
         if (state != null) 
@@ -51,7 +53,9 @@ public class StateMachine {
         CurrentState = state;
         CurrentState.Enter();
     }
- 
+
+    // if the robot gains new capabilites, we call this method to give
+    // it a new actor class that reflects those capabilities
     void changeActor(Actor actor) {
         if (actor == null)
             return;

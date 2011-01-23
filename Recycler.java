@@ -4,6 +4,7 @@ import battlecode.common.*;
 import static battlecode.common.GameConstants.*;
 
 class RecyclerGlobal extends State {
+    // I don't know if this is even neccesary, but 
     public RecyclerGlobal(Actor owner, StateMachine fsm) {
         super(owner, fsm);
     }
@@ -44,10 +45,10 @@ class makeConstructors extends State {
             else 
                 RC.yield();
         }
-        
+        // If we have everything we need, then we proceed to building
     }
                   
     void Exit() {
-
+        // Exit should probably be where we wake up the robot we just built.
     }
 }

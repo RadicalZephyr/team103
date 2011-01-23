@@ -47,6 +47,7 @@ class Mover extends Actor {
     public Mover(RobotController rc) {
         super(rc);
     }
+    
 }
 
 class Building extends Actor {
