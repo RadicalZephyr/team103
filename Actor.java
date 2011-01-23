@@ -1,7 +1,7 @@
 package team103;
 
 import battlecode.common.*;
-import static battlecode.common.GameConstants.*;
+//import static battlecode.common.GameConstants.*;
 
 class Actor {
     final RobotController myRC;
@@ -36,18 +36,22 @@ class Actor {
     
 }
 
-class Mover extends Actor {
+class SensorActor extends Actor {
 
-    WeaponController[] weapons;
-    
     SensorController sensor;
 
-    BroadcastController broadcast;
-
-    public Mover(RobotController rc) {
+     public SensorActor(RobotController rc) {
         super(rc);
     }
     
+    void setSensor(SensorController sensor) {
+        this.sensor = sensor;
+    }
+
+    boolean canSeeMine() {
+        return sensor.canSenseObject(Mine);
+    }
+
 }
 
 class Building extends Actor {

@@ -1,7 +1,7 @@
 package team103;
 
 import battlecode.common.*;
-import static battlecode.common.GameConstants.*;
+//import static battlecode.common.GameConstants.*;
 
 class ConstructorGlobal extends State {
     public ConstructorGlobal(Actor owner, StateMachine fsm) {
@@ -38,5 +38,13 @@ class findFlux extends State {
                   
     void Exit() {
 
+    }
+}
+
+
+class Constructor extends SensorActor {
+    
+    public Constructor(RobotController rc) {
+        super(rc);
     }
 }

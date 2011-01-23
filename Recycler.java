@@ -1,7 +1,7 @@
 package team103;
 
 import battlecode.common.*;
-import static battlecode.common.GameConstants.*;
+//import static battlecode.common.GameConstants.*;
 
 class RecyclerGlobal extends State {
     // I don't know if this is even neccesary, but 
